@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarik Tambang Matematika</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Tarik Tambang Matematika</h1>
+        <div id="messages">Menghubungkan ke server...</div>
+        
+        <div id="lobbyScreen" class="screen">
+            <input type="text" id="nameInput" placeholder="Masukkan Namamu..." maxlength="15">
+            <hr>
+            <div class="lobby-join">
+                <input type="number" id="lobbyCodeInput" placeholder="Kode Lobby (4 Digit)">
+                <button id="joinLobbyBtn">Gabung Lobby</button>
+            </div>
+            <p>ATAU</p>
+            <button id="createLobbyBtn">Buat Lobby Baru</button>
+            <h2 id="lobbyCodeDisplay" class="hidden"></h2> </div>
+
+        <div id="waitingScreen" class="screen hidden">
+            <p>Kode Lobby: <strong id="waitCode">...</strong></p>
+            <p>Menunggu pemain lain...</p>
+            <div class="loader"></div>
+        </div>
+        
+        <div id="gameArea" class="screen hidden">
+            <div class="scoreboard">
+                <div id="player1Score" class="player-score red-team">Tim Merah: 0</div>
+                <div id="player2Score" class="player-score blue-team">Tim Biru: 0</div>
+            </div>
+
+            <div class="rope-container">
+                <div class="line"></div>
+                <div id="rope" class="rope">
+                    <div class="flag">🚩</div>
+                </div>
+            </div>
+
+            <div class="question-area">
+                <div id="question">...</div>
+                <input type="number" id="answerInput" placeholder="Jawaban...">
+                <button id="submitBtn">Jawab</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        © Vincentius Aleria
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

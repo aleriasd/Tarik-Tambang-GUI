@@ -1,0 +1,177 @@
+/* public/style.css (Versi 3.0 - Discord GUI) */
+
+:root {
+    --color-bg: #313338;
+    --color-frame-bg: #2B2D31;
+    --color-text: #DBDEE1;
+    --color-text-dim: #949BA4;
+    --color-accent: #5865F2; /* Biru/Ungu */
+    --color-accent-hover: #4752C4;
+    --color-white: #FFFFFF;
+    --color-red: #F23F42;
+    --color-blue: #3498db;
+    --color-green: #2DC770;
+    --color-input-bg: #383A40;
+    --color-border: #44474D;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    background-color: var(--color-frame-bg);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+}
+
+h1 {
+    color: var(--color-white);
+    margin-bottom: 20px;
+}
+
+#messages {
+    background-color: var(--color-frame);
+    color: var(--color-green);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    min-height: 20px;
+    font-size: 14px;
+    border: 1px solid var(--color-border);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Layar Join, Tunggu, Game --- */
+.screen {
+    padding: 10px 0;
+}
+
+/* Input dan Tombol (Style Discord) */
+input[type="text"],
+input[type="number"] {
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-bg);
+    border-radius: 4px;
+    color: var(--color-text);
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+button {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%; /* Tombol jadi full width */
+}
+button:hover:not(:disabled) {
+    background-color: var(--color-accent-hover);
+}
+button:disabled {
+    background-color: #444;
+    color: var(--color-text-dim);
+    cursor: not-allowed;
+}
+
+/* --- Style Layar Lobby (BARU) --- */
+#lobbyScreen input[type="text"] {
+    width: 100%;
+}
+#lobbyScreen hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 15px 0;
+}
+.lobby-join {
+    display: flex;
+    gap: 10px;
+}
+.lobby-join input[type="number"] {
+    width: 40%;
+    margin: 0;
+}
+.lobby-join button {
+    width: 60%;
+    margin: 0;
+}
+#lobbyScreen p {
+    color: var(--color-text-dim);
+    margin: 15px 0;
+}
+#lobbyCodeDisplay {
+    color: var(--color-green);
+    font-size: 1.5em;
+    margin-top: 15px;
+}
+
+/* --- Style Layar Tunggu (BARU) --- */
+#waitingScreen p {
+    font-size: 1.2em;
+    color: var(--color-text-dim);
+}
+#waitingScreen strong {
+    color: var(--color-white);
+    font-size: 1.5em;
+}
+.loader { /* Animasi loading spinner */
+    border: 4px solid var(--color-frame);
+    border-top: 4px solid var(--color-accent);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto 0;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Scoreboard */
+.scoreboard { display: flex; justify-content: space-around; margin-bottom: 20px; font-size: 1.2em; font-weight: bold; }
+.player-score { padding: 10px 15px; border-radius: 5px; color: var(--color-white); }
+.red-team { background-color: var(--color-red); }
+.blue-team { background-color: var(--color-blue); }
+
+/* Rope Area */
+.rope-container { position: relative; width: 100%; height: 10px; background-color: var(--color-input-bg); border-radius: 15px; margin: 40px 0; }
+.line { position: absolute; left: 50%; top: -10px; bottom: -10px; width: 4px; background-color: var(--color-accent); z-index: 5; }
+.rope { position: absolute; height: 100%; width: 50%; background-color: var(--color-accent); left: 25%; border-radius: 15px; transition: left 0.5s ease-out; }
+.flag { position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-size: 2.5em; z-index: 10; }
+
+/* Question Area */
+#question { font-size: 2.5em; margin-bottom: 20px; color: var(--color-white); font-weight: bold; }
+#answerInput { width: 150px; }
+
+/* Footer Lisensi */
+footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-text-dim);
+}
